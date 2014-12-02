@@ -98,6 +98,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AjourNet.Domain\AjourNet.Domain.csproj">
+      <Project>{2c9fbdfd-b07d-48eb-af0d-2b0dbaeae975}</Project>
+      <Name>AjourNet.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AjourNet\AjourNet.csproj">
       <Project>{381DA505-F654-4CB1-87EA-B22B60B605D0}</Project>
       <Name>AjourNet</Name>
