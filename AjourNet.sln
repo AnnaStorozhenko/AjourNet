@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AjourNet", "AjourNet\AjourNet.csproj", "{381DA505-F654-4CB1-87EA-B22B60B605D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AjourNet.Tests", "AjourNet.Tests\AjourNet.Tests.csproj", "{A34260A3-41AF-4C0E-98E5-D5A1C4DD3D53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{381DA505-F654-4CB1-87EA-B22B60B605D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{381DA505-F654-4CB1-87EA-B22B60B605D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{381DA505-F654-4CB1-87EA-B22B60B605D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{381DA505-F654-4CB1-87EA-B22B60B605D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A34260A3-41AF-4C0E-98E5-D5A1C4DD3D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A34260A3-41AF-4C0E-98E5-D5A1C4DD3D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A34260A3-41AF-4C0E-98E5-D5A1C4DD3D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A34260A3-41AF-4C0E-98E5-D5A1C4DD3D53}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
