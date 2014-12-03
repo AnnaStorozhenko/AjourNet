@@ -22,21 +22,17 @@ namespace AjourNet.Controllers
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("GetUserFeed");
+                return RedirectToAction("GetUserFeed", "Feed");
             }
             else
             {
               //  ModelState.AddModelError("","Please, enter your credentials"); 
-                
                 return View(model);
             }
           
         }
 
         
-        public ActionResult GetUserFeed(UserProfileModel model)
-        {
-            return View("~\\Views\\Shared\\_Layout.cshtml");
-        }
+      
     }
 }
