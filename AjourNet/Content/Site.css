@@ -22,3 +22,21 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.loginForm {
+    border: 1px solid black; 
+    padding: 1px 1px 1px 1px; 
+}
+
+.loginForm h4 {
+    text-align: center; 
+    padding-top: 1em; 
+    padding-bottom: 1em; 
+} 
+
+.loginErrorBar {
+    color: white; 
+    padding: 0.5em 0em 0.5em 0em; 
+    margin-bottom: 1.5em; 
+    display: none; 
+} 
