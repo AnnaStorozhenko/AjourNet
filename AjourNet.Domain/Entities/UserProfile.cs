@@ -10,6 +10,8 @@ namespace AjourNet.Domain.Entities
 {
     public class UserProfile
     {
+        [Key]
+        public int UserProfile { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]
