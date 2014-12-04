@@ -67,6 +67,7 @@
     <Compile Include="Concrete\AjourNetContext.cs" />
     <Compile Include="Concrete\AjourNetInitializer.cs" />
     <Compile Include="ViewModels\UserFeedModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\UserProfileModel.cs" />
   </ItemGroup>
   <ItemGroup>

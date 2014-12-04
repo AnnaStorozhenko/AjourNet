@@ -22,3 +22,84 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.loginForm {
+    border: 1px solid black; 
+    padding: 1px 1px 1px 1px; 
+}
+
+.loginForm h4 {
+    text-align: center; 
+    padding-top: 1em; 
+    padding-bottom: 1em; 
+} 
+
+.loginErrorBar {
+    color: white; 
+    padding: 0.5em 0em 0.5em 0em; 
+    margin-bottom: 1.5em; 
+    display: none; 
+} 
+
+
+#generalBody {
+    background: #E9EAED;
+    padding-top:0px;
+}
+
+#profilesContainer, #feedsContainer,#miscContainer {
+    background: #FFF;
+    word-wrap:break-word;
+    border-width:1px;
+    border-style:solid;
+    border-image:none;
+    border-color:#DFE0E4;
+    border-radius:3px;
+}
+
+#profilesContainer,#feedsContainer,#miscContainer {
+    width:340px;
+    padding:5px;
+    margin:10px 3px 10px 3px;
+    /*min-height:600px;*/
+}
+
+#profilesView,#feedsView,#miscView {
+    margin-top: 5px;
+    margin-bottom:5px;
+}
+
+#navbarMain {
+    background-color: #FFF;
+    border-color: #DFE0E4;
+    min-height:40px;
+    margin-bottom:0px;
+}
+
+#searchContainer {
+    background-color:#FFF;
+    padding-top:15px;
+    padding-bottom:15px;
+    margin-top:0px !important;
+    margin-bottom:0px !important;
+}
+
+#imageContainer {
+    margin-bottom:15px;
+}
+
+#searchWrapper {
+    margin-left:40.3%;
+}
+
+#profileImage {
+    max-width:200px;
+    max-height:250px;
+
+    min-width:200px;
+    max-height:250px;
+}
+.centered-pills { text-align:center; }
+.centered-pills ul.nav-pills { display:inline-block; }
+.centered-pills li { display:inline; }
+.centered-pills a { float:left; }
