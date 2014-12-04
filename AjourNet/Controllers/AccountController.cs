@@ -25,6 +25,7 @@ namespace AjourNet.Controllers
             //TODO: Implement real authentication (part of task #10)
             if (!ModelState.IsValid )
             {
+                ModelState.AddModelError("BootstrapAlertSummary", "Please correct the marked fields below.");
                 return View(model);
             }     
                 bool signInResult = await PasswordSignInAsync(model.Email, model.Password); 
@@ -34,7 +35,7 @@ namespace AjourNet.Controllers
             }
             else
             {
-                ModelState.AddModelError("Can't Login!", "Wrong Login or password!");
+                ModelState.AddModelError("BootstrapAlertSummary", "Wrong Login or password!");
                 return View(); 
             }
         } 

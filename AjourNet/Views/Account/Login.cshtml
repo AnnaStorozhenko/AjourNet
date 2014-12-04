@@ -6,18 +6,11 @@
 }
 
 <div class="row">
-    @if(!ViewData.ModelState.IsValid)
+    @if(ViewData.ModelState["BootstrapAlertSummary"]!=null)
     {
     <div class="alert-danger col-md-6 col-md-offset-3 loginErrorBar" id="loginErrorBar">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
-        @if(ViewData.ModelState.ContainsKey("Can't Login!"))
-            {
-                @ViewData.ModelState["Can't Login!"].Errors[0].ErrorMessage;
-            }
-            else
-            {
-                @:Please correct the marked fields below.
-            }
+                @ViewData.ModelState["BootstrapAlertSummary"].Errors[0].ErrorMessage;
     </div>
     }
     <div class="col-md-6 col-md-offset-3">
