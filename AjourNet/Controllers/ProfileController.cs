@@ -46,7 +46,7 @@ namespace AjourNet.Controllers
             };
 
             UserProfile user = new UserProfile
-        {
+            {
                 FirstName = "Nazarii",
                 LastName = "Tashak",
                 AjourNetUser = ajourUser,
@@ -54,6 +54,12 @@ namespace AjourNet.Controllers
             };
 
             UserProfileModel profile = new UserProfileModel(user);
+
+            profile.Occupation = "Junior Software Developer";
+            profile.Location = "LV/G";
+            profile.Status = Status.Online;
+            profile.PhoneNumber = "3346";
+            profile.Motto = "To be or not to be";
 
 
             return PartialView(profile);
@@ -64,6 +70,7 @@ namespace AjourNet.Controllers
             return PartialView();
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost]
         [ActionName("EditProfile")]
         public ActionResult EditProfileConfirmed(/*ViewModel, Model or Entity*/)

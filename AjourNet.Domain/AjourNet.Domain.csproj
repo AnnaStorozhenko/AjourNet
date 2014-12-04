@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Entities\Feed.cs" />
     <Compile Include="Entities\Post.cs" />
+    <Compile Include="Entities\StatusType.cs" />
     <Compile Include="Entities\UserProfile.cs" />
     <Compile Include="Identity\AjourNetUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

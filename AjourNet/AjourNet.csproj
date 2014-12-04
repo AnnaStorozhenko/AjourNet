@@ -142,7 +142,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\no-photo.jpg" />
     <Content Include="Scripts\AjourNetScripts\LoginScript.js" />
-    <Content Include="Images\xnta.jpg" />
     <Content Include="Scripts\AjourNetScripts\UserProfile.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

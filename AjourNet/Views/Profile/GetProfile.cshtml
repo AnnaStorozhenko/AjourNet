@@ -10,36 +10,26 @@
 
 @using (Ajax.BeginForm("EditProfile","Profiles", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "profilesView" }, new { @class = "form-horizontal", @id = "editProfileForm"}))
 {
-    <div class="">
-        <div class="text-center">
+    @Html.AntiForgeryToken()
+    
+    <div class="text-center">
             <p class="form-control-static"><strong>@Html.Label(Model.FirstName) @Html.Label(Model.LastName)</strong></p>
-        </div>
     </div>
-    <div class="">
-        <div class="text-center">
-            <p class="form-control-static text-center">xnta</p>
-        </div>
+    <div class="text-center">
+            @Html.Label(Model.UserName)
     </div>
-    <div class="">
-        <div class="text-center">
-            <p class="form-control-static text-center">Las Vegas</p>
-        </div>
+    <div class="text-center">
+            @Html.Label(Model.Location)
     </div>
-    <div class="">
-        <div class="text-center">
-            <p class="form-control-static text-center">Online</p>
-        </div>
+    <div class="text-center">
+            @Html.Label(Model.Status.ToString())
     </div>
-    <div class="">
-        <div class="">
-            <p class="form-control-static text-center">3346</p>
-        </div>
+    <div class="text-center">
+           @Html.Label(Model.PhoneNumber)
     </div>
-    <div class="">
-        <div class="form-group">
-            <p class="form-control-static text-center"><em>To be or not to be</em></p>
+        <div class="form-group text-center">
+            <em>@Html.Label(Model.Motto)</em>
         </div>
-    </div>
     <div class="form-group">
         <div class="text-center">
             <button type="submit" class="btn btn-primary">Edit Profile</button>
