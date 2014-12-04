@@ -1,0 +1,115 @@
+﻿@model AjourNet.Domain.ViewModels.UserProfileModel
+
+@{
+    Layout = null;
+    ViewBag.Title = "CreateUserProfile";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#myModal").modal('show');
+            $("#CreateUserProfile").click(function (event) {
+                event.preventDefault();
+                $("#createProfileForm").validate();
+                if ($("#createProfileForm").valid()) {
+                    createEmp = $('#createProfileForm').serialize();
+                    $.ajax({
+                        type: "POST",
+                        url: "/UserProfile/CreateUserProfile",
+                        data: createEmp,
+                        success: function (data) {
+                            if (data.error) {
+                                $("#ModelError").html(data.error);
+                            }
+                            else {
+                                $(dialogEmpCreate).dialog("close");
+                            }
+                        },
+                        error: function (data) {
+                            alert('Server not responding');
+                        }
+                    });
+                }
+            },
+             function (event, ui) {
+                 $(this).dialog("destroy");
+                 $(this).remove();
+
+             });
+            $.validator.unobtrusive.parse(this);
+        });
+
+    </script>
+</head>
+<body>
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h4 class="modal-title">Your Profile</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("CreateUserProfile", "UserProfile", FormMethod.Post, new { id = "createProfileForm", @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <form class="form-horizontal">
+                            <br />
+                            <div class="form-control-static" style="margin-right:40px">
+                                <label for="FirstName" class="control-label col-xs-4">First  Name</label>
+                                <div class="input-group">
+                                    <div class="input-group has-feedback">
+
+                                        <span class="input-group-addon"> <span class="glyphicon glyphicon-user">   </span> </span>
+                                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                                        <span class="input-control-feedback"></span>
+
+                                    </div>
+                                    <div class="input-group has-feedback"><span class="input-control-error"></span>
+                                        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                                     </div>
+                                 </div>
+                            </div>
+                            <div class="form-control-static" style="margin-right:40px">
+                                <label for="Lastname" class="control-label col-xs-4">Last  Name</label>
+                                <div class="input-group">
+                                    <div class="input-group has-feedback">
+                                        <span class="input-group-addon"> <span class="glyphicon glyphicon-user">   </span> </span>
+                                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+
+
+                                        <span class="input-control-feedback"></span>
+                                    </div>
+                                    @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <br />
+                            <div style="margin-left:400px">
+                                <input id="CreateUserProfile" type="submit" value="Continue" class="btn btn-primary" />
+                            </div>
+                        </form>
+
+
+                    }
+                    <br />
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>                            		

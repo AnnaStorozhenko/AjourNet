@@ -28,7 +28,7 @@ namespace AjourNet.Controllers
             }     
             else
             {
-                return RedirectToAction("GetUserProfile", "UserProfile"); 
+                return RedirectToAction("CreateUserProfile", "Profile"); 
             }
         }
     }

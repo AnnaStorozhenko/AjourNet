@@ -10,7 +10,7 @@ namespace AjourNet.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("CreateUserProfile", "UserProfile");
         }
 
         public ActionResult About()
