@@ -124,6 +124,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FeedController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -142,6 +143,7 @@
     <Content Include="Images\no-photo.jpg" />
     <Content Include="Scripts\AjourNetScripts\LoginScript.js" />
     <Content Include="Images\xnta.jpg" />
+    <Content Include="Scripts\AjourNetScripts\UserProfile.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -171,6 +173,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\UserProfile\CreateUserProfile.cshtml" />
+    <Content Include="Views\Feed\GetUserFeed.cshtml" />
     <Content Include="Views\UserProfile\GetUserProfile.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_EmptyLayout.cshtml" />

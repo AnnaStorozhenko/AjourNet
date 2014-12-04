@@ -25,6 +25,6 @@ namespace AjourNet.Domain.Entities
             get { return AjourNetUser.UserName; }
         }
 
-
+        public virtual Feed Feed{ get; set;}
     }
 }

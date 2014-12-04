@@ -11,5 +11,12 @@ namespace AjourNet.Domain.Identity
     public class AjourNetUser : IdentityUser
     {
         public UserProfile UserProfile;
+    
+        public AjourNetUser()
+        {
+            UserName = "asto";
+           
+        }
+        
     }
 }

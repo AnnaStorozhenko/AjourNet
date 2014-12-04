@@ -12,6 +12,30 @@ namespace AjourNet.Controllers
     //[Authorize]
     public class ProfileController : Controller
     {
+
+        // GET: CreateUserProfile
+        public ActionResult CreateUserProfile()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateUserProfile(UserProfileModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("GetProfile");
+            }
+            else
+            {
+                //  ModelState.AddModelError("","Please, enter your credentials"); 
+                return View(model);
+            }
+
+        }
+
         // GET: Profile
         public ActionResult GetProfile(/*string id*/)
         {
@@ -22,7 +46,7 @@ namespace AjourNet.Controllers
             };
 
             UserProfile user = new UserProfile
-            {
+        {
                 FirstName = "Nazarii",
                 LastName = "Tashak",
                 AjourNetUser = ajourUser,
