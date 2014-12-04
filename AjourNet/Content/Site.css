@@ -56,16 +56,26 @@ textarea {
     border-radius:3px;
 }
 
-#profilesContainer,#feedsContainer,#miscContainer {
-    width:340px;
+#profilesContainer,#miscContainer {
+    max-height:600px;
     padding:5px;
     margin:10px 3px 10px 3px;
-    /*min-height:600px;*/
+}
+
+#feedsContainer{    
+    height:100%;
+    padding:5px;
+    margin:10px 3px 10px 3px;
+    overflow:hidden;
 }
 
 #profilesView,#feedsView,#miscView {
     margin-top: 5px;
     margin-bottom:5px;
+}
+
+#feedsView {
+    height:100%;
 }
 
 #navbarMain {
@@ -92,11 +102,11 @@ textarea {
 }
 
 #profileImage {
-    max-width:200px;
-    max-height:250px;
+    max-width:170px;
+    max-height:200px;
 
-    min-width:200px;
-    max-height:250px;
+    min-width:170px;
+    min-height:200px;
 }
 .centered-pills { text-align:center; }
 .centered-pills ul.nav-pills { display:inline-block; }
