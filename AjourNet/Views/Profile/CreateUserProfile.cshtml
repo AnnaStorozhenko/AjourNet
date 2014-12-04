@@ -52,20 +52,39 @@
     </script>
 </head>
 <body>
-  @using (Html.BeginForm("CreateUserProfile", "Profile", FormMethod.Post, new { id = "createProfileForm", @class = "form-horizontal", role = "form" }))
-  {
 
-    <div id="myModal" class="modal fade">
+    @using (Html.BeginForm("CreateUserProfile", "Profile", FormMethod.Post, new { id = "createProfileForm", @class = "form-horizontal", role = "form" }))
+    {
 
-            @Html.AntiForgeryToken()
-            <div class="alert-danger col-md-6 col-md-offset-3 loginErrorBar" id="loginErrorBar">
-                @Html.ValidationSummary(true)     <a href="#" class="close">&times;</a>
+        <div id="myModal" class="modal fade">
+            <br>
+            <br>
+            <div class="row">
+                @if (ViewData.ModelState["BootstrapAlertSummary"] != null)
+                {
+                    <div class="alert-danger modal-control col-md-4 col-sm-offset-4 nameErrorBar" style="height:30px" id="nameErrorBar">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        @ViewData.ModelState["BootstrapAlertSummary"].Errors[0].ErrorMessage;
+                    </div>
+                }
             </div>
             <div class="modal-dialog">
+
                 <div class="modal-content">
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "alert-danger" })
+
                     <div class="modal-header">
                         <h4 class="modal-title">Your Name</h4>
+
                     </div>
+
+
+
+
+
+
                     <div class="modal-body">
                         <form class="form-horizontal">
                             <br />
@@ -115,6 +134,6 @@
                 </div>
             </div>
         </div>
-  } 
-</body> 
+    }
+</body>
 </html>                            		

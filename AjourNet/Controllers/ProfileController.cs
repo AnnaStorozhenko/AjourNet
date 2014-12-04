@@ -27,7 +27,7 @@ namespace AjourNet.Controllers
             }
             else
             {
-                ModelState.AddModelError("","Please, enter your credentials"); 
+                ModelState.AddModelError("BootstrapAlertSummary", "Please, enter your credentials"); 
                 return View("CreateUserProfile", model);
             }
 
