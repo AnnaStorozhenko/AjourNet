@@ -12,6 +12,7 @@ namespace AjourNet.Domain.ViewModels
     public class UserProfileModel
     {
         public int UserProfileID;
+        
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
@@ -23,8 +24,9 @@ namespace AjourNet.Domain.ViewModels
         [Required(ErrorMessage = "Last Name is required")]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
-        
         public  AjourNetUser AjourNetUser { get; set; }
+        public Feed Feed { get; set; }
+        
         public UserProfileModel()
         {
             FirstName = FirstName;
@@ -32,6 +34,7 @@ namespace AjourNet.Domain.ViewModels
             AjourNetUser = new AjourNetUser();
             UserName = AjourNetUser.UserName;
         }
+       
         public UserProfileModel(UserProfile user)
         {
             UserProfileID = user.UserProfileID; 
@@ -39,8 +42,6 @@ namespace AjourNet.Domain.ViewModels
             LastName = user.LastName;
             AjourNetUser = user.AjourNetUser;
             UserName = user.UserName;
-
         }
-        
     }
 }
