@@ -31,7 +31,7 @@ namespace AjourNet.Controllers
                 bool signInResult = await PasswordSignInAsync(model.Email, model.Password); 
             if(signInResult)
             {
-                return RedirectToAction("CreateUserProfile", "UserProfile");
+                return RedirectToAction("CreateUserProfile", "Profile");
             }
             else
             {

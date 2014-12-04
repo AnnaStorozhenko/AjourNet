@@ -26,7 +26,7 @@ namespace AjourNet.Controllers
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("GetProfile");
+                return RedirectToAction("GetUserFeed","Feed" );
             }
             else
             {
