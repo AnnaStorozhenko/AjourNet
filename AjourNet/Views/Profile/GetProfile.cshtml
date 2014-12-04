@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="text-center" id="imageContainer">
+    <img src="~/Images/xnta.jpg" class="img-thumbnail" id="profileImage">
+</div>
+
+@using (Ajax.BeginForm("EditProfile","Profiles", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "profilesView" }, new { @class = "form-horizontal", @id = "editProfileForm"}))
+{
+    <div class="">
+        <div class="text-center">
+            <p class="form-control-static"><strong>Nazarii Tashak</strong></p>
+        </div>
+    </div>
+    <div class="">
+        <div class="text-center">
+            <p class="form-control-static text-center">xnta</p>
+        </div>
+    </div>
+    <div class="">
+        <div class="text-center">
+            <p class="form-control-static text-center">Las Vegas</p>
+        </div>
+    </div>
+    <div class="">
+        <div class="text-center">
+            <p class="form-control-static text-center">Online</p>
+        </div>
+    </div>
+    <div class="">
+        <div class="">
+            <p class="form-control-static text-center">3346</p>
+        </div>
+    </div>
+    <div class="">
+        <div class="form-group">
+            <p class="form-control-static text-center"><em>To be or not to be</em></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Edit Profile</button>
+        </div>
+    </div>
+}
