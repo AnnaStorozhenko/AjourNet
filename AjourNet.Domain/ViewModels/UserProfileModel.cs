@@ -13,7 +13,7 @@ namespace AjourNet.Domain.ViewModels
     {
         public int UserProfileID;
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "User ID")]
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "First Name is required")]
@@ -23,8 +23,28 @@ namespace AjourNet.Domain.ViewModels
         [Required(ErrorMessage = "Last Name is required")]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
-        
+
+        [Display(Name = "Status")]
+        public string Occupation { get; set; }
+
+        [Display(Name = "Location")]
+        public string Location { get; set; }
+
+        private Status status;
+        public Status Status
+        {
+            get { return status; }
+            set { status = value; }
+        }
+
+        [Display(Name = "Phone Number")]
+        public string PhoneNumber { get; set; }
+
+        [Display(Name = "Motto")]
+        public string Motto { get; set; }
+
         public  AjourNetUser AjourNetUser { get; set; }
+
         public UserProfileModel()
         {
             FirstName = FirstName;
@@ -38,8 +58,11 @@ namespace AjourNet.Domain.ViewModels
             FirstName = user.FirstName;
             LastName = user.LastName;
             AjourNetUser = user.AjourNetUser;
-            UserName = user.UserName;
-
+            UserName = user.UserName;            
+            Status = Status.Online;
+            Location = String.Empty;
+            PhoneNumber = String.Empty;
+            Motto = String.Empty;
         }
         
     }
