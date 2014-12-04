@@ -39,6 +39,12 @@ textarea {
     padding: 0.5em 0em 0.5em 0em; 
     margin-bottom: 1.5em;  
 } 
+.nameErrorBar {
+    color: white; 
+    padding: 0.5em 0em 0.5em 0em; 
+    margin-bottom: 1.5em;  
+}
+
 
 
 #generalBody {

@@ -14,5 +14,10 @@ namespace AjourNet.Controllers
         {
             return View();
         }
+
+        public ActionResult ViewMyFeed(UserProfileModel model)
+        {
+            return PartialView();
+        }
     }
 }

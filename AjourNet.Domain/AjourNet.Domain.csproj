@@ -69,6 +69,7 @@
     <Compile Include="Concrete\AjourNetInitializer.cs" />
     <Compile Include="ViewModels\UserFeedModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\UserPostModel.cs" />
     <Compile Include="ViewModels\UserProfileModel.cs" />
     <Compile Include="ViewModels\UserSearchViewModel.cs" />
   </ItemGroup>

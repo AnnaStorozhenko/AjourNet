@@ -1,0 +1,27 @@
+﻿@model AjourNet.Domain.ViewModels.UserFeedModel
+
+@{
+    Layout = null;
+}
+<div>
+    <div class="col-xs-3">
+        <img src="~/Images/no-photo.jpg " class="img-thumbnail " id="slallProfileImage">
+    </div>
+
+
+    @using (Ajax.BeginForm("Create", "Post", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "feedsView" }, new { @class = "form-horizontal", @id = "createPostForm" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="col-xs-9">
+            <textarea rows="2" style="max-width:inherit" class="form-control" id="createPost" placeholder="Type your post here..."></textarea>
+            <br>
+            <div class="text-right">
+                <button type="submit" class="btn btn-primary">Post</button>
+            </div>
+        
+         </div>
+
+        
+    }
+
+</div>
