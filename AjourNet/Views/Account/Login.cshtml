@@ -5,13 +5,14 @@
     ViewBag.Title = "Log in";
 }
 
-@Scripts.Render("~/bundles/login")
-
 <div class="row">
+    @if(ViewData.ModelState["BootstrapAlertSummary"]!=null)
+    {
     <div class="alert-danger col-md-6 col-md-offset-3 loginErrorBar" id="loginErrorBar">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
-        Please correct the marked fields below.
+                @ViewData.ModelState["BootstrapAlertSummary"].Errors[0].ErrorMessage;
     </div>
+    }
     <div class="col-md-6 col-md-offset-3">
         <section class="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", id = "loginForm", role = "form" }))
@@ -53,12 +54,6 @@
         </section>
     </div>
 </div>
-
-<script type="text/javascript">
-    bindLoginValidationHandlers();
-</script>
-
-
 
 @section Scripts { 
 } 

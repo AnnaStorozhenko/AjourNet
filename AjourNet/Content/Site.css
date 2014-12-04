@@ -37,8 +37,7 @@ textarea {
 .loginErrorBar {
     color: white; 
     padding: 0.5em 0em 0.5em 0em; 
-    margin-bottom: 1.5em; 
-    display: none; 
+    margin-bottom: 1.5em;  
 } 
 
 

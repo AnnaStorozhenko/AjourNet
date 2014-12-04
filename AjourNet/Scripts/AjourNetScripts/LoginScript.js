@@ -11,6 +11,10 @@
         displayErrorBar();
     });
 
+    $("#loginForm").on("load", function () {
+        displayErrorBar();
+    });
+
 
     function displayErrorBar() {
         if ($('#loginForm .field-validation-error')) {
