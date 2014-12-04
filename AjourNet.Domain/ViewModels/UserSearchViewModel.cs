@@ -1,5 +1,4 @@
 ﻿using AjourNet.Domain.Entities;
-using AjourNet.Domain.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace AjourNet.Domain.ViewModels
 {
-    public class UserProfileModel
-    {
+    public class UserSearchViewModel
+    { 
         public int UserProfileID;
-        
         [Required]
         [Display(Name = "User ID")]
         public string UserName { get; set; }
@@ -38,34 +36,17 @@ namespace AjourNet.Domain.ViewModels
             set { status = value; }
         }
 
-        [Display(Name = "Phone Number")]
-        public string PhoneNumber { get; set; }
-
-        [Display(Name = "Motto")]
-        public string Motto { get; set; }
-
-        public  AjourNetUser AjourNetUser { get; set; }
-        public Feed Feed { get; set; }
-        
-        public UserProfileModel()
+        public UserSearchViewModel()
         {
-            FirstName = FirstName;
-            LastName = LastName;
-            AjourNetUser = new AjourNetUser();
-            UserName = AjourNetUser.UserName;
         }
-       
-        public UserProfileModel(UserProfile user)
+        public UserSearchViewModel(UserProfile user)
         {
             UserProfileID = user.UserProfileID; 
             FirstName = user.FirstName;
             LastName = user.LastName;
-            AjourNetUser = user.AjourNetUser;
-            UserName = user.UserName;
+            UserName = user.UserName;            
             Status = Status.Online;
             Location = String.Empty;
-            PhoneNumber = String.Empty;
-            Motto = String.Empty;
         }
     }
 }

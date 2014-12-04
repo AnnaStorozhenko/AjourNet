@@ -16,7 +16,7 @@ namespace AjourNet.Controllers
         // GET: CreateUserProfile
         public ActionResult CreateUserProfile()
         {
-            return View();
+            return View("CreateUserProfile");
         }
 
 
@@ -26,12 +26,12 @@ namespace AjourNet.Controllers
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("GetProfile");
+                return RedirectToAction("GetUserFeed","Feed" );
             }
             else
             {
-                //  ModelState.AddModelError("","Please, enter your credentials"); 
-                return View(model);
+                ModelState.AddModelError("BootstrapAlertSummary", "Please, enter your credentials"); 
+                return View("CreateUserProfile", model);
             }
 
         }

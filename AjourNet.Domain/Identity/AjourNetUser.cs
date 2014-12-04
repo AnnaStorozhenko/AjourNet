@@ -14,8 +14,7 @@ namespace AjourNet.Domain.Identity
     
         public AjourNetUser()
         {
-            UserName = "asto";
-           
+            UserName = "user";
         }
         
     }

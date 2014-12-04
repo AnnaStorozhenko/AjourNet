@@ -126,7 +126,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FeedController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UserProfileController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -172,12 +173,13 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\UserProfile\CreateUserProfile.cshtml" />
+    <Content Include="Views\Profile\CreateUserProfile.cshtml" />
     <Content Include="Views\Feed\GetUserFeed.cshtml" />
     <Content Include="Views\UserProfile\GetUserProfile.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_EmptyLayout.cshtml" />
     <Content Include="Views\Profile\GetProfile.cshtml" />
+    <Content Include="Views\Search\SearchUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

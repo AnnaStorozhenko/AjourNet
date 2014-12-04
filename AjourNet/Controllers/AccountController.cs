@@ -22,14 +22,28 @@ namespace AjourNet.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            //TODO: Implement real authentication (part of task #10)
             if (!ModelState.IsValid )
             {
+                ModelState.AddModelError("BootstrapAlertSummary", "Please correct the marked fields below.");
                 return View(model);
             }     
+                bool signInResult = await PasswordSignInAsync(model.Email, model.Password); 
+            if(signInResult)
+            {
+                return RedirectToAction("CreateUserProfile", "Profile");
+            }
             else
             {
-                return RedirectToAction("CreateUserProfile", "Profile"); 
+                ModelState.AddModelError("BootstrapAlertSummary", "Wrong Login or password!");
+                return View(); 
             }
+        } 
+
+                private async Task<bool> PasswordSignInAsync(string eMail, string password)
+        {
+            return await Task.Run(() => {return eMail =="abc@gmail.com" && password == "123456"; });
         }
+
     }
 }
