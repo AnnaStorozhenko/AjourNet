@@ -12,6 +12,7 @@ namespace AjourNet.Controllers
     //[Authorize]
     public class ProfileController : Controller
     {
+        public ProfileController() { }
 
         // GET: CreateUserProfile
         public ActionResult CreateUserProfile()
