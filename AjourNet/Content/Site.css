@@ -97,7 +97,7 @@ textarea {
     max-height:250px;
 
     min-width:200px;
-    max-height:250px;
+    min-height:250px;
 }
 .centered-pills { text-align:center; }
 .centered-pills ul.nav-pills { display:inline-block; }
