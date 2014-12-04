@@ -7,12 +7,20 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
+
+@{
+    AjaxOptions searchFormOptions = new AjaxOptions {  HttpMethod = "Get", UpdateTargetId = "feedsView" };   
+}
+
 <body id="generalBody">
+   @using (Ajax.BeginForm("SearchUser", "Search", null, searchFormOptions, new { @class = "form-horizontal", @id = "editSearchForm" }))
+   {
     <div id="searchContainer">
         <div id="searchWrapper">
-            <input type="search" placeholder="Search..." class="form-control" id="mainSearch"> @*<--wrap into form*@
+            <input type="search" placeholder="Search..." class="form-control" id="mainSearch" name="searchString" > @*<--wrap into form*@
         </div>
     </div>
+    }
     <div class=" navbar navbar-default navbar-inverse" id="navbarMain">
         <div class="container">
             <div class="centered-pills">
@@ -52,5 +60,20 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    @*<script>
+        $("#mainSearch").on("change", function()
+        {
+            $.ajax({
+                type: 'GET',
+                url: '/Search/SearchUser',
+                data: { searchString: $("#mainSearch").val() },
+                success: function (data) {
+                    $("#feedsView").html(data);
+                },
+                error: function (data) { }
+            })
+        }
+        )
+    </script>*@
 </body>
 </html>

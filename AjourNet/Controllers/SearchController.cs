@@ -22,9 +22,9 @@ namespace AjourNet.Controllers
                     Occupation = "Developer", 
                     Location = "Lviv"
                 };
-                IEnumerable<UserSearchViewModel> usersFound = new List<UserSearchViewModel> { };
+                IEnumerable<UserSearchViewModel> usersFound = new List<UserSearchViewModel> { userFound }; 
             }
-            return View();
+            return PartialView();
         } 
 
     }
