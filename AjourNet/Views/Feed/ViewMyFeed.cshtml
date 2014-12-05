@@ -1,8 +1,42 @@
-﻿@model AjourNet.Domain.ViewModels.UserFeedModel
+﻿@model AjourNet.Domain.ViewModels.UserPostModel
 
 @{
     Layout = null;
 }
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#createPost").click(function (event) {
+            event.preventDefault();
+            $("#createPostForm").validate();
+            if ($("#createPostForm").valid()) {
+                createPost = $('#createPostForm').serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "/CreatePost/Post",
+                    data: createPost,
+                    success: function (data) {
+                        if (data.error) {
+                            $("#ModelError").html(data.error);
+                        }
+                        else {
+                            $(dialogEmpCreate).dialog("close");
+                        }
+                    },
+                    error: function (data) {
+                        alert('Server not responding');
+                    }
+                });
+            }
+        },
+         function (event, ui) {
+             $(this).dialog("destroy");
+             $(this).remove();
+         });
+        $.validator.unobtrusive.parse(this);
+    });
+
+</script>
+
 <div>
     <div class="col-xs-3">
         <img src="~/Images/no-photo.jpg " class="img-thumbnail " id="slallProfileImage">
@@ -13,10 +47,12 @@
     {
         @Html.AntiForgeryToken()
         <div class="col-xs-9">
-            <textarea rows="2" style="max-width:inherit" class="form-control" id="createPost" placeholder="Type your post here..."></textarea>
+            <textarea rows="2" style="max-width:inherit" class="form-control" id="createPost" placeholder="Type your post here...">
+               @Html.EditorFor(model => model.Text, "Type your post here...")
+            </textarea>
             <br>
             <div class="text-right">
-                <button type="submit" class="btn btn-primary">Post</button>
+                <a id="createPost"  class=" btn btn-primary">Post</a>
             </div>
         
          </div>
