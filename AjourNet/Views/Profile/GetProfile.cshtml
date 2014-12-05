@@ -8,10 +8,8 @@
     <img src="~/Images/no-photo.jpg" class="img-thumbnail" id="profileImage">
 </div>
 
-@using (Ajax.BeginForm("EditProfile","Profiles", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "profilesView" }, new { @class = "form-horizontal", @id = "editProfileForm"}))
-{
-    @Html.AntiForgeryToken()
-    
+@using (Ajax.BeginForm("EditProfile","Profile",null, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "profilesView" }, new { @class = "form-horizontal", @id = "editProfileForm"}))
+{    
     <div class="text-center">
             <p class="form-control-static"><strong>@Html.Label(Model.FirstName) @Html.Label(Model.LastName)</strong></p>
     </div>

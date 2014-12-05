@@ -1,0 +1,38 @@
+﻿@model AjourNet.Domain.ViewModels.UserProfileModel
+
+@{
+    Layout = null;
+}
+
+<div class="text-center" id="imageContainer">
+    <img src="~/Images/no-photo.jpg" class="img-thumbnail" id="profileImage">
+</div>
+
+@using (Ajax.BeginForm("EditProfile", "Profile", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "profilesView" }, new { @class = "form-horizontal", @id = "editProfileForm" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="text-center">
+        <p class="form-control-static"><strong>@Html.Label(Model.FirstName) @Html.Label(Model.LastName)</strong></p>
+    </div>
+    <div class="text-center">
+        @Html.Label(Model.UserName)
+    </div>
+    <div class="text-center">
+        @Html.Label(Model.Location)
+    </div>
+    <div class="text-center">
+        @Html.Label(Model.Status.ToString())
+    </div>
+    <div class="text-center">
+        @Html.Label(Model.PhoneNumber)
+    </div>
+    <div class="form-group text-center">
+        <em>@Html.Label(Model.Motto)</em>
+    </div>
+    <div class="form-group">
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Save Profile</button>
+        </div>
+    </div>
+}

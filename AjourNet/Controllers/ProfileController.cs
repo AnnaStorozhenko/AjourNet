@@ -66,9 +66,10 @@ namespace AjourNet.Controllers
             return PartialView(profile);
         }
 
-        public ActionResult EditProfile(/*user id or etc.*/)
+        public ActionResult EditProfile(UserProfileModel user)
         {
-            return PartialView();
+            //check if user exist
+            return PartialView(user);
         }
 
         [ValidateAntiForgeryToken]
