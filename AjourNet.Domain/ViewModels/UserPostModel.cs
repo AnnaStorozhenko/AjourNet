@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AjourNet.Domain.Infrastructure;
 
 namespace AjourNet.Domain.ViewModels
 {
@@ -14,10 +15,15 @@ namespace AjourNet.Domain.ViewModels
         //[Required(ErrorMessage = "Type the post")]
         public string Text { get; set; }
         [Required]
+        public DateTime Time { get; set; }
+        [Required]
         public  Feed PostOf { get; set; }
         [Required]
         public  UserProfile PostOfUser { get; set; }
 
-
+        public UserPostModel()
+        {
+            Time = DateTime.Now.ToLocalTimeAzure();
+        }
     }
 }

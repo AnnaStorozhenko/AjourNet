@@ -13,6 +13,8 @@ namespace AjourNet.Domain.Entities
         public int PostID { get; set; }
         [Required]
         public string Text { get; set; }
+        [Required]
+        public DateTime Time { get; set; }
         public virtual Feed PostOf { get; set; }
         public virtual UserProfile PostOfUser { get; set; }
 

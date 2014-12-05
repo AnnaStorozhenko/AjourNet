@@ -49,6 +49,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Providers">
       <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
     </Reference>
@@ -64,6 +65,7 @@
     <Compile Include="Entities\StatusType.cs" />
     <Compile Include="Entities\UserProfile.cs" />
     <Compile Include="Identity\AjourNetUser.cs" />
+    <Compile Include="Infrastructure\DateTimeExtentions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Concrete\AjourNetContext.cs" />
     <Compile Include="Concrete\AjourNetInitializer.cs" />
