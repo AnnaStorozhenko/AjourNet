@@ -14,5 +14,18 @@ namespace AjourNet.Controllers
         {
             return View();
         }
+
+        public ActionResult CreatePost(UserPostModel model)
+        {
+            return PartialView(model);
+        }
+
+        public ActionResult ViewMyFeed(UserPostModel model)      
+        {
+            return PartialView();
+        }
+        
+      
+
     }
 }

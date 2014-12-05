@@ -26,5 +26,7 @@ namespace AjourNet.Domain.Entities
         }
 
         public virtual Feed Feed{ get; set;}
+        public virtual List<Post> Posts { get; set; }
+
     }
 }

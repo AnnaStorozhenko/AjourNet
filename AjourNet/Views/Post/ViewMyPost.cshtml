@@ -1,0 +1,26 @@
+﻿@using AjourNet.Domain.ViewModels
+@model IEnumerable<UserPostModel>
+
+@{
+    Layout = null;
+}
+
+@foreach (UserPostModel post in Model)
+{
+    <form>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="~/Images/no-photo.jpg" style="width: 100%; height: 100%">
+            </div>
+            
+            <div class="col-md-9">
+
+                <div class="col-md-12">
+                    @post.Text
+                </div>
+
+            </div>
+        </div>
+        <hr>
+    </form>
+}

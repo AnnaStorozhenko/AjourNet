@@ -49,8 +49,6 @@ namespace AjourNet.Domain.ViewModels
         
         public UserProfileModel()
         {
-            FirstName = FirstName;
-            LastName = LastName;
             AjourNetUser = new AjourNetUser();
             UserName = AjourNetUser.UserName;
         }
