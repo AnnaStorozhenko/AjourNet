@@ -3,6 +3,8 @@ using AjourNet.Domain.Identity;
 using AjourNet.Domain.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,6 +14,31 @@ namespace AjourNet.Controllers
     //[Authorize]
     public class ProfileController : Controller
     {
+        static byte[] convertToByte()
+        {
+            Image img = Image.FromFile(@"D:\xnta.jpg");
+            byte[] arr;
+
+            using (MemoryStream stream = new MemoryStream())
+            {
+                img.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                arr = stream.ToArray();
+            }
+
+            return arr;
+        }
+
+        List<UserProfileModel> users = new List<UserProfileModel>
+            {
+                new UserProfileModel{Feed = null, FirstName = "Nazarii", LastName = "Tashak", Location = "LV/G", Motto = "ABC",
+                                     Status = Status.Online, Occupation = "Test", UserName = "xnta", AjourNetUser = new AjourNetUser{UserName = "xnta"}, PhoneNumber = "123-456-789", Picture = convertToByte()},
+                new UserProfileModel{Feed = null, FirstName = "Adam", LastName = "Adamovich", Location = "LA/W", Motto = "Good day",
+                                     Status = Status.BusinessTrip, Occupation = "None", PhoneNumber = "555-12-456", UserName = "adch", AjourNetUser = new AjourNetUser{UserName = "adch"}},
+                new UserProfileModel{Feed = null, FirstName = "Alice", LastName = "Jefferson", Location = "WA/A", Motto = "Hello",
+                                     Status = Status.Vacation, Occupation = "Guru", PhoneNumber = "435-77-109", UserName = "alje", AjourNetUser = new AjourNetUser{UserName = "alje"}}
+            };
+
+
         public ProfileController() { }
 
         // GET: CreateUserProfile
@@ -38,46 +65,39 @@ namespace AjourNet.Controllers
         }
 
         // GET: Profile
-        public ActionResult GetProfile(/*string id*/)
+        public ActionResult GetProfile(string id)
         {
             //get info from database
-            AjourNetUser ajourUser = new AjourNetUser
-            {
-                UserName = "xnta"
-            };
 
-            UserProfile user = new UserProfile
-            {
-                FirstName = "Nazarii",
-                LastName = "Tashak",
-                AjourNetUser = ajourUser,
-                UserProfileID = 1
-            };
-
-            UserProfileModel profile = new UserProfileModel(user);
-
-            profile.Occupation = "Junior Software Developer";
-            profile.Location = "LV/G";
-            profile.Status = Status.Online;
-            profile.PhoneNumber = "3346";
-            profile.Motto = "To be or not to be";
-
-
-            return PartialView(profile);
+            UserProfileModel user = users.Where(u => u.UserName == id).FirstOrDefault();
+            
+            return PartialView(user);
         }
 
-        public ActionResult EditProfile(UserProfileModel user)
+        public ActionResult EditProfile(string id)
         {
             //check if user exist
+            UserProfileModel user = users.Where(u => u.UserName == id).FirstOrDefault();
             return PartialView(user);
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
         [ActionName("EditProfile")]
-        public ActionResult EditProfileConfirmed(/*ViewModel, Model or Entity*/)
+        public ActionResult EditProfileConfirmed(UserProfileModel user, HttpPostedFileBase file)
         {
-            return PartialView();
+            //if(ModelState.IsValid)
+            //{ 
+            //save info
+            UserProfileModel userToEdit = users.Where(u => u.UserName == user.UserName).FirstOrDefault();
+            if (userToEdit != null)
+            {
+                userToEdit.Location = user.Location;
+                userToEdit.PhoneNumber = user.PhoneNumber;
+                userToEdit.Motto = user.Motto;
+            }
+            //return GetProfile(id)
+            return PartialView("GetProfile",userToEdit);
         }
     }
 }

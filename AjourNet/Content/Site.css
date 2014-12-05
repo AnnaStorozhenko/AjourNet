@@ -117,11 +117,16 @@ textarea {
 
 #profileImage {
     max-width:170px;
-    max-height:200px;
+    max-height:215px;
 
     min-width:170px;
-    min-height:200px;
+    min-height:215px;
 }
+
+#editInput {
+    margin-bottom:3px;
+}
+
 .centered-pills { text-align:center; }
 .centered-pills ul.nav-pills { display:inline-block; }
 .centered-pills li { display:inline; }

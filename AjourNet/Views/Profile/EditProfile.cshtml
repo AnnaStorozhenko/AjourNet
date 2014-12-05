@@ -4,35 +4,53 @@
     Layout = null;
 }
 
+@{
+    string result = System.Convert.ToBase64String(Model.Picture, 0, Model.Picture.Length);
+}
+
+
 <div class="text-center" id="imageContainer">
-    <img src="~/Images/no-photo.jpg" class="img-thumbnail" id="profileImage">
+    <img src="data:image/jpeg;base64,@result" class="img-thumbnail" id="profileImage">
 </div>
 
 @using (Ajax.BeginForm("EditProfile", "Profile", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "profilesView" }, new { @class = "form-horizontal", @id = "editProfileForm" }))
 {
     @Html.AntiForgeryToken()
-
+    <input type="file" id="file" name="file" style="display: none;" />
+<div class="row">
     <div class="text-center">
-        <p class="form-control-static"><strong>@Html.Label(Model.FirstName) @Html.Label(Model.LastName)</strong></p>
+        @Html.Label(Model.FirstName + " " + Model.LastName)
+        @Html.Hidden("FirstName", Model.FirstName)
+        @Html.Hidden("LastName", Model.LastName)
     </div>
     <div class="text-center">
         @Html.Label(Model.UserName)
+        @Html.Hidden("UserName",Model.UserName)
     </div>
     <div class="text-center">
-        @Html.Label(Model.Location)
+            @Html.Label(Model.Status.ToString())
+            @Html.Hidden("Status", Model.Status)
     </div>
-    <div class="text-center">
-        @Html.Label(Model.Status.ToString())
+    <div class="col-md-12">
+        @Html.TextBoxFor(m => m.Location, new { @class = "form-control input-sm", @id = "editInput"})
     </div>
-    <div class="text-center">
-        @Html.Label(Model.PhoneNumber)
+    <div class="col-md-12">
+        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control input-sm", @id = "editInput" })
     </div>
-    <div class="form-group text-center">
-        <em>@Html.Label(Model.Motto)</em>
+    <div class="col-md-12">
+        @Html.TextBoxFor(m => m.Motto, new { @class = "form-control input-sm", @id = "editInput" })
     </div>
-    <div class="form-group">
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary">Save Profile</button>
-        </div>
+    <div class="col-md-8 col-md-offset-2">
+        <div class=" text-center">
+        <button type="submit" class="btn btn-primary">Save Profile</button>
     </div>
+    </div>
+</div>
 }
+
+
+<script type="text/javascript">
+    $("#profileImage").click(function () {
+        $("input[id='file']").click();
+    });
+</script>

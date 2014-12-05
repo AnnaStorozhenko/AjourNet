@@ -37,7 +37,7 @@
         <div class="row" id="mainRow">
             <div class="col-xs-3" id="profilesContainer">
                 <div id="profilesView">
-                    @Html.Action("GetProfile", "Profile") @*Add HttpContext.User.Identity.Name*@
+                    @Html.Action("GetProfile", "Profile", new { id = "xnta"}) @*Add HttpContext.User.Identity.Name*@
                 </div>
             </div>
             <div class="col-xs-5" id="feedsContainer">

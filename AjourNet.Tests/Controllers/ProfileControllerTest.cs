@@ -21,8 +21,9 @@ namespace AjourNet.Tests.Controllers
         public void GetProfile_NazariiTashakDefault_View()
         {
             //Arrange
+            string id = "xnta";
             //Act
-            var result = controller.GetProfile() as PartialViewResult;
+            var result = controller.GetProfile(id) as PartialViewResult;
             var modelResult = result.Model as UserProfileModel;
 
             //Assert
