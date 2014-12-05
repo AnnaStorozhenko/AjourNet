@@ -1,1 +1,35 @@
-﻿
+﻿@using AjourNet.Domain.ViewModels
+@model IEnumerable<UserSearchViewModel>
+@{
+    Layout = null;
+}
+@foreach (UserSearchViewModel user in Model)
+{
+    <div class="row" id="searchUserResult">
+
+        <div class="col-md-3">
+            <img src="~/Images/no-photo.jpg">
+        </div>
+
+        <div class="col-md-9">
+
+            <div class="col-md-12">
+                @user.FirstName @user.LastName
+            </div>
+
+            <div class="col-md-12">
+                @user.Status
+            </div> 
+
+            <div class="col-md-6">
+                @user.Occupation
+            </div>
+
+            <div class="col-md-6">
+                @user.Location
+            </div>
+
+        </div> 
+
+    </div>
+}

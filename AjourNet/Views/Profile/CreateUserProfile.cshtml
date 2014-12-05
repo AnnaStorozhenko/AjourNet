@@ -1,10 +1,8 @@
 ﻿@model AjourNet.Domain.ViewModels.UserProfileModel
-
 @{
     Layout = null;
     ViewBag.Title = "CreateUserProfile";
 }
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,15 +16,15 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#myModal").modal('show');
-            $("#CreateUserProfile").click(function (event) {
+            $("#createUserProfile").click(function (event) {
                 event.preventDefault();
                 $("#createProfileForm").validate();
                 if ($("#createProfileForm").valid()) {
-                    createEmp = $('#createProfileForm').serialize();
+                    createUser = $('#createProfileForm').serialize();
                     $.ajax({
                         type: "POST",
                         url: "/Profile/CreateUserProfile",
-                        data: createEmp,
+                        data: createUser,
                         success: function (data) {
                             if (data.error) {
                                 $("#ModelError").html(data.error);
@@ -44,7 +42,6 @@
              function (event, ui) {
                  $(this).dialog("destroy");
                  $(this).remove();
-
              });
             $.validator.unobtrusive.parse(this);
         });
@@ -55,85 +52,74 @@
 
     @using (Html.BeginForm("CreateUserProfile", "Profile", FormMethod.Post, new { id = "createProfileForm", @class = "form-horizontal", role = "form" }))
     {
-
         <div id="myModal" class="modal fade">
             <br>
             <br>
             <div class="row">
                 @if (ViewData.ModelState["BootstrapAlertSummary"] != null)
                 {
-                    <div class="alert-danger modal-control col-md-4 col-sm-offset-4 nameErrorBar" style="height:30px" id="nameErrorBar">
+                    <div class="alert-danger col-xs-5 col-md-offset-3 loginerrorbar id=" nameerrorbar">
                         <a href="#" class="close" data-dismiss="alert">&times;</a>
                         @ViewData.ModelState["BootstrapAlertSummary"].Errors[0].ErrorMessage;
                     </div>
                 }
             </div>
-            <div class="modal-dialog">
 
-                <div class="modal-content">
-                    @Html.AntiForgeryToken()
+            <div class="col-xs-5 col-md-offset-3">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "alert-danger" })
+                        <div class="modal-header">
+                            <h4 class="modal-title">Your Name</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <br />
+                                <div class="form-control-static" style="margin-right:40px">
+                                    <label for="FirstName" class="control-label col-xs-4">First  Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group has-feedback">
 
-                    @Html.ValidationSummary(true, "", new { @class = "alert-danger" })
+                                            <span class="input-group-addon"> <span class="glyphicon glyphicon-user">   </span> </span>
+                                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                                            <span class="input-control-feedback"></span>
 
-                    <div class="modal-header">
-                        <h4 class="modal-title">Your Name</h4>
-
-                    </div>
-
-
-
-
-
-
-                    <div class="modal-body">
-                        <form class="form-horizontal">
-                            <br />
-                            <div class="form-control-static" style="margin-right:40px">
-                                <label for="FirstName" class="control-label col-xs-4">First  Name</label>
-                                <div class="input-group">
-                                    <div class="input-group has-feedback">
-
-                                        <span class="input-group-addon"> <span class="glyphicon glyphicon-user">   </span> </span>
-                                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
-                                        <span class="input-control-feedback"></span>
-
-                                    </div>
-                                    <div class="input-group has-feedback">
-                                        <span class="input-control-error"></span>
-                                        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="input-group has-feedback">
+                                            <span class="input-control-error"></span>
+                                            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-control-static" style="margin-right:40px">
-                                <label for="Lastname" class="control-label col-xs-4">Last  Name</label>
-                                <div class="input-group">
-                                    <div class="input-group has-feedback">
-                                        <span class="input-group-addon"> <span class="glyphicon glyphicon-user">   </span> </span>
-                                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                                <div class="form-control-static" style="margin-right:40px">
+                                    <label for="Lastname" class="control-label col-xs-4">Last  Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group has-feedback">
+                                            <span class="input-group-addon"> <span class="glyphicon glyphicon-user">   </span> </span>
+                                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
 
 
-                                        <span class="input-control-feedback"></span>
+                                            <span class="input-control-feedback"></span>
+                                        </div>
+                                        @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
                                     </div>
-                                    @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
                                 </div>
-                            </div>
+                                <br />
+                                <div style="margin-left:400px">
+                                    <input id="createUserProfile" type="submit" value="Continue" class="btn btn-default" />
+                                </div>
+                            </form>
+
                             <br />
-                            <div style="margin-left:400px">
-                                <input id="CreateUserProfile" type="submit" value="Continue" class="btn btn-default" />
-                            </div>
-                        </form>
-
-
-
-                        <br />
-
-                    </div>
-                    <div class="modal-footer">
-
+                        </div>
+                        <div class="modal-footer">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     }
 </body>
 </html>                            		

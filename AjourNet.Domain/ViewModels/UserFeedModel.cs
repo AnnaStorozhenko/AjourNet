@@ -11,6 +11,7 @@ namespace AjourNet.Domain.ViewModels
     public class UserFeedModel
     {
         public int FeedID { get; set; }
+    
         [Required]
         public  UserProfile FeedOf { get; set; }
         public  List<Post> Posts { get; set; }

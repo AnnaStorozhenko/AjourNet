@@ -11,6 +11,10 @@ namespace AjourNet.Domain.Entities
     {
         [Key]
         public int PostID { get; set; }
+        [Required]
+        public string Text { get; set; }
         public virtual Feed PostOf { get; set; }
+        public virtual UserProfile PostOfUser { get; set; }
+
     }
 }

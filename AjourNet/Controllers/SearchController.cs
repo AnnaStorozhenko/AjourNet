@@ -10,22 +10,39 @@ namespace AjourNet.Controllers
     public class SearchController : Controller
     {
 
-        public ActionResult SearchUser(string searchString)
+        public ActionResult SearchUser(string searchString="")
         {
-            if(searchString=="tebo")
+            UserSearchViewModel firstUser = new UserSearchViewModel
             {
-                UserSearchViewModel userFound =  new UserSearchViewModel
+                UserProfileID = 111,
+                FirstName = "Bohdan",
+                LastName = "Tereta",
+                Occupation = "Developer",
+                Location = "Lviv", 
+                UserName = "tebo"
+            };
+
+            UserSearchViewModel secondUser = new UserSearchViewModel
+            {
+                UserProfileID = 111,
+                FirstName = "Anna",
+                LastName = "Storozhenko",
+                Occupation = "Developer",
+                Location = "Lviv", 
+                UserName = "asto"
+            };
+
+            IEnumerable<UserSearchViewModel> users = new List<UserSearchViewModel> { firstUser, secondUser };
+            List<UserSearchViewModel> usersFound = new List<UserSearchViewModel>();
+            foreach (UserSearchViewModel user in users)
+            {
+                if (user.FirstName.Contains(searchString))
                 {
-                    UserProfileID = 111,
-                    FirstName = "Bohdan",
-                    LastName = "Tereta", 
-                    Occupation = "Developer", 
-                    Location = "Lviv"
-                };
-                IEnumerable<UserSearchViewModel> usersFound = new List<UserSearchViewModel> { };
+                    usersFound.Add(user);
+                }
             }
-            return View();
-        } 
+            return PartialView(usersFound);
+        }
 
     }
 }
