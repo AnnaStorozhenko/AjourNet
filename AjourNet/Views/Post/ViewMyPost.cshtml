@@ -12,7 +12,7 @@
             <div class="col-md-3">
                 <img src="~/Images/no-photo.jpg" style="width: 100%; height: 100%">
             </div>
-            
+
             <div class="col-md-9">
 
                 <div class="col-md-12">
@@ -23,4 +23,16 @@
         </div>
         <hr>
     </form>
+    <div class="row">
+        @using (Ajax.BeginForm("CreateComment", "Comment", null, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "feedsView" }, new { @class = "form-horizontal col-md-12", @id = "editCommentForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div class="col-md-offset-9 col-md-2 text-right">
+                    @Html.Hidden(post.PostID.ToString())
+                    <input type="submit" value="Comment" class="btn btn-default" />
+                </div>
+            </div>
+        }
+    </div>
 }
