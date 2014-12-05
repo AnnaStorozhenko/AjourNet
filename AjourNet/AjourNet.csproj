@@ -176,7 +176,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Profile\CreateUserProfile.cshtml" />
     <Content Include="Views\Feed\GetUserFeed.cshtml" />
-    <Content Include="Views\UserProfile\GetUserProfile.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_EmptyLayout.cshtml" />
     <Content Include="Views\Profile\GetProfile.cshtml" />

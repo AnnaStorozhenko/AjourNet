@@ -18,7 +18,8 @@ namespace AjourNet.Controllers
                 FirstName = "Bohdan",
                 LastName = "Tereta",
                 Occupation = "Developer",
-                Location = "Lviv"
+                Location = "Lviv", 
+                UserName = "tebo"
             };
 
             UserSearchViewModel secondUser = new UserSearchViewModel
@@ -27,7 +28,8 @@ namespace AjourNet.Controllers
                 FirstName = "Anna",
                 LastName = "Storozhenko",
                 Occupation = "Developer",
-                Location = "Lviv"
+                Location = "Lviv", 
+                UserName = "asto"
             };
 
             IEnumerable<UserSearchViewModel> users = new List<UserSearchViewModel> { firstUser, secondUser };
