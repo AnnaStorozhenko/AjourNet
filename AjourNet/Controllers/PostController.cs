@@ -19,16 +19,18 @@ namespace AjourNet.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreatePost(UserPostModel model)
         {
-            //if (ModelState.IsValid)
-            //{
-                return RedirectToAction("GetUserFeed", "Feed");
-            //}
-            //else
-            //{
-            //    ModelState.AddModelError("BootstrapAlertSummary", "Please, enter your credentials");
-            //    return View("CreateUserProfile", model);
-            //}
-
+            
+            return PartialView(model);
         }
+
+        public ActionResult ViewMyPost()
+        {
+            UserPostModel post1 = new UserPostModel { PostID = 10, Text = "Hi All, my name is Nick" };
+            UserPostModel post2 = new UserPostModel { PostID = 11, Text = "Hi All,I am Nick" };
+            List<UserPostModel> users = new List<UserPostModel> { post1, post2 };
+
+            return PartialView("", users);
+        }
+
     }
 }
