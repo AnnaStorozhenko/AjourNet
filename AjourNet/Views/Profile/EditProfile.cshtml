@@ -2,12 +2,16 @@
 
 @{
     Layout = null;
-}
-
-@{
     string result = System.Convert.ToBase64String(Model.Picture, 0, Model.Picture.Length);
 }
 
+
+@using (Html.BeginForm("FileUpload", "Profile",null, FormMethod.Post, new { enctype = "multipart/form-data", id = "formUploadImage"}))
+{ 
+    @Html.AntiForgeryToken()
+    <input type="file" id="file" name="file" style="display: none;" />
+    @Html.Hidden("id", Model.UserName)
+}
 
 <div class="text-center" id="imageContainer">
     <img src="data:image/jpeg;base64,@result" class="img-thumbnail" id="profileImage">
@@ -16,7 +20,7 @@
 @using (Ajax.BeginForm("EditProfile", "Profile", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "profilesView" }, new { @class = "form-horizontal", @id = "editProfileForm" }))
 {
     @Html.AntiForgeryToken()
-    <input type="file" id="file" name="file" style="display: none;" />
+
 <div class="row">
     <div class="text-center">
         @Html.Label(Model.FirstName + " " + Model.LastName)
@@ -42,7 +46,7 @@
     </div>
     <div class="col-md-8 col-md-offset-2">
         <div class=" text-center">
-        <button type="submit" class="btn btn-primary">Save Profile</button>
+        <button type="button" class="btn btn-primary" id="editProfileBtn">Save Profile</button>
     </div>
     </div>
 </div>
@@ -53,4 +57,10 @@
     $("#profileImage").click(function () {
         $("input[id='file']").click();
     });
+
+    $("#editProfileBtn").click(function () {
+        alert("aaaa");
+        $("#formUploadImage").submit();
+        $("#editProfileForm").submit();
+    })
 </script>

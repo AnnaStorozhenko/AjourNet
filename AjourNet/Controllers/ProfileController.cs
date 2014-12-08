@@ -99,5 +99,34 @@ namespace AjourNet.Controllers
             //return GetProfile(id)
             return PartialView("GetProfile",userToEdit);
         }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public void FileUpload(HttpPostedFileBase file, string id)
+        {
+            byte[] imageData;
+
+            if (file != null)
+            {
+                using (Stream inputStream = file.InputStream)
+                {
+                    MemoryStream ms = inputStream as MemoryStream;
+                    if (ms == null)
+                    {
+                        ms = new MemoryStream();
+                        inputStream.CopyTo(ms);
+                    }
+                    imageData = ms.ToArray();
+
+                    UserProfileModel user = users.Where(u => u.UserName == id).FirstOrDefault();
+                    if (user != null)
+                    {
+                        user.Picture = imageData;
+                    }
+                }
+            }
+
+            //return RedirectToAction("GetUserFeed", "Feed");
+        }
     }
 }

@@ -4,34 +4,6 @@
 @{
     Layout = null;
 }
-<script type="text/javascript">
-    $("#createPost").button();
-    $("#createPost").click(function (event) {
-        event.preventDefault();
-        $("#createPostForm").validate();
-        if ($("#createPostForm").valid()) {
-            $.ajax({
-                type: "POST",
-                url: "/CreatePost/Post",
-                data: $("#planBTForm").serialize(),
-                success: function (data) {
-                    if (data.error) {
-                        $("#ModelError").html(data.error);
-                    }
-                    else {
-                        $("#Plan-BT").dialog("close");
-                    }
-                },
-
-                error: function (data) {
-                    alert("Server is not responding");
-                }
-            })
-        }
-    })
-
-
-</script>
 
 <div>
     <div class="col-xs-3">
