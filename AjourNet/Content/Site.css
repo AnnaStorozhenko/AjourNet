@@ -1,4 +1,12 @@
-﻿body {
+﻿#html, #generalBody, #mainRow, #feedsContainer {
+    height:100%;
+}
+
+#viewContainer {
+    height:85%;
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -18,8 +26,8 @@
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
-select,
-textarea {
+select
+{
     max-width: 280px;
 }
 
@@ -109,15 +117,26 @@ textarea {
 
 #profileImage {
     max-width:170px;
-    max-height:200px;
+    max-height:215px;
 
     min-width:170px;
-    min-height:200px;
+    min-height:215px;
 }
+
+#editInput {
+    margin-bottom:3px;
+}
+
 .centered-pills { text-align:center; }
 .centered-pills ul.nav-pills { display:inline-block; }
 .centered-pills li { display:inline; }
 .centered-pills a { float:left; }
+
+#searchUserResult div img 
+{
+    width: 100%; 
+    height: 100%;
+}
 
    .timeAgo {
     font-size:smaller;

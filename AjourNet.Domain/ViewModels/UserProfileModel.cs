@@ -46,6 +46,8 @@ namespace AjourNet.Domain.ViewModels
 
         public  AjourNetUser AjourNetUser { get; set; }
         public Feed Feed { get; set; }
+
+        public byte[] Picture { get; set; }
         
         public UserProfileModel()
         {

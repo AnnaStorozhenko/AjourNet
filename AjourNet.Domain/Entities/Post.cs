@@ -17,6 +17,7 @@ namespace AjourNet.Domain.Entities
         public DateTime Time { get; set; }
         public virtual Feed PostOf { get; set; }
         public virtual UserProfile PostOfUser { get; set; }
+        public virtual List<Comment> comments { get; set; } 
 
     }
 }
