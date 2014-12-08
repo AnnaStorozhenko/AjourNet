@@ -1,0 +1,20 @@
+﻿@model AjourNet.Domain.ViewModels.CommentViewModel
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm("CreateComment", "Comment", null, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "feedsView" }, new { @class = "form-horizontal", @id = "editCommentForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(Model => Model.PostID)
+    <div class="row">
+        <div class="col-xs-12"> 
+            @Html.ValidationMessageFor(m => m.Text, "", new { @class = "text-danger" })
+            @Html.TextAreaFor(m => m.Text, new { @class = "form-control" })
+        </div>
+        <br />
+        <div class="col-md-3 col-md-offset-9 text-right">
+            <input type="submit" value="Commit" class="btn btn-default" />
+        </div>
+    </div>
+}

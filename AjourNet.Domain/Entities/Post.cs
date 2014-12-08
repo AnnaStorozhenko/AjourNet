@@ -15,6 +15,7 @@ namespace AjourNet.Domain.Entities
         public string Text { get; set; }
         public virtual Feed PostOf { get; set; }
         public virtual UserProfile PostOfUser { get; set; }
+        public virtual List<Comment> comments { get; set; } 
 
     }
 }
