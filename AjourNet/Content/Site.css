@@ -118,3 +118,9 @@ textarea {
 .centered-pills ul.nav-pills { display:inline-block; }
 .centered-pills li { display:inline; }
 .centered-pills a { float:left; }
+
+   .timeAgo {
+    font-size:smaller;
+    font-style:normal;
+    color:#c6c3c3;
+    }

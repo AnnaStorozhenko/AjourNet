@@ -1,19 +1,21 @@
 ﻿@using AjourNet.Domain.ViewModels
-@using AjourNet.Domain.Infrastructure;
+@using AjourNet.Helpers;
 
 @model IEnumerable<UserPostModel>
 
 @{
     Layout = null;
 }
+
 @Styles.Render("~/Content/css")
 <style type="text/css">
     .timeAgo {
     font-size:smaller;
     font-style:normal;
-    text-decoration-color:#808080;
+    color:#c6c3c3;
     }
 </style>
+
 @foreach (UserPostModel post in Model)
 {
     <form id="userPosts">
